@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!--
 *Show the user new tweets somehow. (You can show them automatically as they're created, or create a button that displays new tweets.)
-Display the timestamps of when the tweets were created. This timestamp should reflect the actual time the tweets were created, and should not just be hardcoded.
+*Display the timestamps of when the tweets were created. This timestamp should reflect the actual time the tweets were created, and should not just be hardcoded.
 Design your interface so that you want to look at and use the product you're making.
-Allow the user to click on a username to see that user's timeline.
+*Allow the user to click on a username to see that user's timeline.
 -->
 <html>
   <head>
@@ -14,7 +14,7 @@ Allow the user to click on a username to see that user's timeline.
   <body>
     <center>
       <header>
-        <h1>This is the header</h1>
+        <span><h1>Twittler</h1></span>
         <button class="updateButton">See New Tweets</button>
       </header>
       <div class="newTweetsSection">
@@ -24,22 +24,7 @@ Allow the user to click on a username to see that user's timeline.
       <script>
 
         $(document).ready(function(){
-          //var users & streams
-          //users = ['usernames'] that you are following
-          //streams = {
-            //users: { username1: {}
-              //       username2: {}
-              //       username3: {}
-              //       username4: [ array [
-                //         0: { user: "douglascalhoun"
-                //              message: "random message"
-                //              created at: },{},{} ]
-                //       
-              //}
-            //home: array [{\
-                // { user:  , message:, created at:}]
-            //}
-
+          
           var $newTweetsSection = $('.newTweetsSection');
           $newTweetsSection.html('');
           
@@ -59,27 +44,42 @@ Allow the user to click on a username to see that user's timeline.
             }
           }
 
-          // $('.updateButton').on('click',function(){
-          //   updateTweets();
-          // })
+          $('.updateButton').on('click',function(){
+            updateTweets();
+          })
 
-          // $('.shawndrost').on('click', function(){
-          //   //show tweets
-            
-          // })
+          $('.newTweetsSection').on('click','.shawndrost', function(){
+            //show tweets
+            showUserTimeline('shawndrost');
+          })
 
-          // function showUserTimeline(userName){
+          $('.newTweetsSection').on('click','.sharksforcheap', function(){
+            //show tweets
+            showUserTimeline('sharksforcheap');
+          })
 
-          // }
-          
+          $('.newTweetsSection').on('click','.mracus', function(){
+            //show tweets
+            showUserTimeline('mracus');
+          })
+          $('.newTweetsSection').on('click','.douglascalhoun', function(){
+            //show tweets
+            showUserTimeline('douglascalhoun');
+          })
 
 
-          // for(var i = 0; i < streams.home.length; i++){
-          //   var username1 = streams.username;
-          //   var $username = $('div');
-          //   $usernames.text('name '+ username1);
-          //   $usernames.appendTo($body);
-          // }
+
+          function showUserTimeline(userName){
+
+            $('.newTweetsSection').find("div").remove();
+            for(var i = streams.users[userName].length - 1; i >= 0; i--){   
+              var tweetInfo = streams.users[userName][i]; 
+              var $tweet = $('<div class = "timeline"></div>');
+              $tweet.html('<strong>@' + userName + ':</strong> ' + tweetInfo.message + '<br />' + tweetInfo.created_at);
+              $tweet.appendTo($newTweetsSection);
+            }
+
+          }
 
         });
 

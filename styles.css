@@ -1,0 +1,33 @@
+body {
+    background-color: #82f4ff;
+    font-family: Helvetica;
+}
+
+.tweet, .timeline {
+    border: 1px solid #ffffff;
+    width: 650px;
+	background-color: #edfdff;
+	margin: 10px;
+	box-shadow: 2px 3px 3px #888888;
+	padding: 10px;
+	border-radius: 10px;
+	font-family: calibri;
+}
+
+button {
+    font-family: Helvetica;
+    background-color: #edfdff;
+    font-size: 20px;
+    border: 1px solid #ffffff;
+	background-color: #edfdff;
+	margin: 10px;
+	box-shadow: 2px 3px 3px #888888;
+	padding: 10px;
+	border-radius: 10px;
+    
+}
+
+header {
+	background-color: #bff9ff
+	border: 5px solid #000000;
+}
